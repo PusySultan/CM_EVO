@@ -7,22 +7,22 @@ import java.util.List;
 public class Solver
 {
     private final double[][] coefficients;
-    private double[] results;
+    public List<List<Double>> results = new ArrayList<>();
     private boolean isNext;
 
     public Solver(double[][] coefficients)
     {
         this.coefficients = coefficients;
+        getResults();
     }
 
-    private double[] getResults()
+    private void getResults()
     {
         for (double[] el: coefficients)
         {
             //todo solving all lines
+            results.add(Solve(el));
         }
-
-        return null;
     }
 
     private List<Double> Solve(double[] cof)
@@ -50,4 +50,5 @@ public class Solver
                 (-cof[1] + Math.sqrt(cof[1] - 4 * cof[0] * cof[2])) / (2 * cof[0]),
                 (-cof[1] - Math.sqrt(cof[1] - 4 * cof[0] * cof[2])) / (2 * cof[0]));
     }
+
 }

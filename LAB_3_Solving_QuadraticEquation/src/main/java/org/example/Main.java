@@ -34,6 +34,9 @@ public class Main
             return;
         }
 
+        Solver solver = new Solver(coefficients);
+        System.out.println(solver.results);
+
         System.out.println(Arrays.deepToString(coefficients));
     }
 
